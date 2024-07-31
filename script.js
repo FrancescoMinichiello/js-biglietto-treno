@@ -19,18 +19,28 @@ console.log('kilometres', kilometres);
 const age = parseInt(prompt('Quanti anni hai?', 17))
 console.log('age', age);
 
-// # Fase calcolo prezzo biglietto
+//! Fase validazione
+if (isNaN(kilometres) || isNaN(age)) {
+    alert('Non sono accettati altri caratteri oltre a quelli numerici')
+} else {
+    // # Fase calcolo prezzo biglietto
 
-let total = kmPrice * kilometres
-console.log('total', total);
+    let total = kmPrice * kilometres
+    console.log('total', total);
 
-// # Fase calcolo sconto
+    // # Fase calcolo sconto
+    let totalMessage = '';
 
-if (age >= 65) {
-    total *= 0.6;
-} else if (age < 18) {
-    total *= 0.8;
+    if (age >= 65) {
+        total *= 0.6;
+        let totalMessage = ('Hai ricevuto uno sconto del 40% OVER 65')
+
+    } else if (age < 18) {
+        total *= 0.8;
+        let totalMessage = ('Hai ricevuto uno sconto del 20% UNDER 18')
+    }
+
+    total = total.toFixed(2) + '€'
+    priceElement.innerHTML = total + totalMessage;
+
 }
-
-total = total.toFixed(2) + '€'
-priceElement.innerHTML = total;
