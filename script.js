@@ -29,15 +29,15 @@ if (isNaN(kilometres) || isNaN(age)) {
     console.log('total', total);
 
     // # Fase calcolo sconto
-    let totalMessage = 'Hai ricevuto uno sconto del ';
-
+    let totalMessage = '';
     if (age >= 65) {
         total *= 0.6;
-        totalMessage += ('40% OVER 65')
+        totalMessage = 'Hai ricevuto uno sconto del 40% OVER 65';
 
     } else if (age < 18) {
         total *= 0.8;
-        totalMessage += ('20% UNDER 18')
+        totalMessage = 'Hai ricevuto uno sconto del 20% UNDER 18';
+
     }
 
     total = total.toFixed(2) + '€';
